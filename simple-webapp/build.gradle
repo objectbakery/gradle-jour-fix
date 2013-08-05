@@ -41,8 +41,11 @@ dependencies{
 }
 
 task copyToLib(type: Copy) {
-    into "$projectDir/lib/tomcat"
+    //from configurations.runtime
+    //into "$projectDir/lib/activeweb"
+
     from configurations.tomcat
+    into "$projectDir/lib/tomcat"	    
 }
 
 
