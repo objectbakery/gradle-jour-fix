@@ -11,7 +11,7 @@ public class HelloController extends AppController {
 
         String theText = param("text");
 
-        view("theText", "Hello: " + theText);
+        view("theText", "Simulacron sagt: " + theText);
 
 		render("index").noLayout();
     }

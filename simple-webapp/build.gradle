@@ -1,23 +1,48 @@
 apply plugin:'java'
 apply plugin:'war'
+apply plugin:'tomcat'
+
+buildscript {
+    repositories {
+        //mavenCentral()
+    	flatDir {
+			dirs 'lib/tomcat-gradle-plugin'
+		}    
+    }
+
+    dependencies {
+        //classpath 'org.gradle.api.plugins:gradle-tomcat-plugin:0.9.8'
+        classpath fileTree('lib/tomcat-gradle-plugin')
+    }
+}
 
 repositories{
 	//mavenCentral()
-
 	flatDir {
 		dirs 'lib/activeweb'
+		dirs 'lib/slf4j-binding'
+		dirs 'lib/tomcat'
 	}
 }
 
 dependencies{
 	//runtime 'org.javalite:activeweb:1.9'            
-
 	compile fileTree('lib/activeweb')
+	compile fileTree('lib/slf4j-binding')
+	tomcat fileTree('lib/tomcat')
+
+	/*
+	def tomcatVersion = '6.0.29'
+    tomcat "org.apache.tomcat:catalina:${tomcatVersion}",
+           "org.apache.tomcat:coyote:${tomcatVersion}",
+           "org.apache.tomcat:jasper:${tomcatVersion}"
+    */
+
 }
 
 task copyToLib(type: Copy) {
-    into "$projectDir/lib/activeweb"
-    from configurations.runtime
+    into "$projectDir/lib/tomcat"
+    from configurations.tomcat
 }
 
 
