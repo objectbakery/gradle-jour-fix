@@ -48,6 +48,10 @@ task copyToLib(type: Copy) {
     into "$projectDir/lib/tomcat"	    
 }
 
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.7'   
+}
+
 
 
 
