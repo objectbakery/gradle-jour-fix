@@ -15,7 +15,7 @@ public class StringFun {
         if(text != null) {
             reversedText = new StringBuilder(text).reverse().toString();
         }
-        return shuffledText;    
+        return reversedText;    
     }
 
     public static String shuffle(String text){
