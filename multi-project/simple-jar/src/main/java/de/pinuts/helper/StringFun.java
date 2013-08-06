@@ -15,8 +15,7 @@ public class StringFun {
         if(text != null) {
             reversedText = new StringBuilder(text).reverse().toString();
         }
-
-        reversedText += " foo";
+        
         return reversedText;    
     }
 
