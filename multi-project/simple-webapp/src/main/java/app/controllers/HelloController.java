@@ -5,7 +5,6 @@ import org.javalite.activeweb.annotations.GET;
 
 import de.pinuts.helper.StringFun;
 
-
 public class HelloController extends AppController {
 
     @GET
@@ -13,7 +12,9 @@ public class HelloController extends AppController {
 
         String theText = param("text");
 
-        view("theText", "Simulacron sagt: " + theText);        
+        view("theText", "Echo: " + theText);
+        view("theTextReverse", "Reverse: " + StringFun.reverse(theText) );
+        view("theTextShuffled", "Reverse: " + StringFun.shuffle(theText) );
 
 		render("index").noLayout();
     }

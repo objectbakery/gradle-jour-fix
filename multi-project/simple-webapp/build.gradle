@@ -30,7 +30,9 @@ dependencies{
 	compile fileTree('lib/activeweb')
 	compile fileTree('lib/slf4j-binding')
 	tomcat fileTree('lib/tomcat')
-   
+
+    compile project(':simple-jar')
+
 	/*
 	def tomcatVersion = '6.0.29'
     tomcat "org.apache.tomcat:catalina:${tomcatVersion}",

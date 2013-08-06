@@ -1,0 +1,13 @@
+allprojects {
+    task hello << { task -> 
+    	println "I'm $task.project.name" 
+    }
+}
+
+task startup(dependsOn: ':simple-webapp:tomcatRun'){
+	
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.6'
+}
