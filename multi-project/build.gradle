@@ -1,11 +1,17 @@
 allprojects {
-    task hello << { task -> 
-    	println "I'm $task.project.name" 
+    task showAll << { task -> 
+    	println "I am $task.project.name" 
+    }
+}
+
+subprojects {
+    task showSubs << { task -> 
+    	println "I am $task.project.name" 
     }
 }
 
 task startup(dependsOn: ':simple-webapp:tomcatRun'){
-	
+
 }
 
 task wrapper(type: Wrapper) {
