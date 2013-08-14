@@ -8,6 +8,18 @@ dependencies{
     testCompile "junit:junit:4.11"
 }
 
+task zipSources(type: Zip) {
+	// from sourceSets.main.java	
+	from 'src/main/java'
+}
+
+task copyZipSources(dependsOn: zipSources, type: Copy) {
+	from zipSources.destinationDir
+	into "$projectDir/"
+}
+
+/*
 task wrapper(type: Wrapper) {
 	gradleVersion = '1.7'	
 }
+*/
