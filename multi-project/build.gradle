@@ -10,9 +10,7 @@ subprojects {
     }
 }
 
-task startup(dependsOn: ':simple-webapp:tomcatRun'){
-
-}
+task startup(dependsOn: ':simple-webapp:tomcatRun'){}
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.7'   

@@ -1,4 +1,50 @@
-apply plugin: 'java'
+apply plugin: 'base'
+apply plugin: 'js'
+
+buildscript {
+    repositories {      
+    	flatDir {
+			dirs 'lib'
+		}    
+    }
+
+    dependencies {        
+        classpath fileTree('lib')
+    }
+}
+
+def jsSrcDir = 'public/js'
+
+// Declare your sources
+javascript.source {
+    dev {
+        js {
+            srcDir jsSrcDir
+            include "*.js"
+            exclude "*.min.js"
+        }
+    }
+    prod {
+        js {
+            srcDir jsSrcDir
+            include "*.min.js"
+        }
+    }
+}
+
+// Configure the built-in task
+combineJs {
+    source = javascript.source.dev.js.files
+    dest = file("${buildDir}/all.js")
+}
+
+minifyJs {
+    source = combineJs
+    dest = file("${buildDir}/all-min.js")
+    closure {
+        warningLevel = 'QUIET'
+    }
+}
 
 task wrapper(type: Wrapper) {
 	gradleVersion = '1.7'	
