@@ -3,8 +3,6 @@ package app.controllers;
 import org.javalite.activeweb.AppController;
 import org.javalite.activeweb.annotations.GET;
 
-import de.pinuts.helper.StringFun;
-
 
 public class HelloController extends AppController {
 
