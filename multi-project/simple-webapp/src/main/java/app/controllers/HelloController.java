@@ -14,7 +14,7 @@ public class HelloController extends AppController {
 
         view("theText", "Echo: " + theText);
         view("theTextReverse", "Reverse: " + StringFun.reverse(theText) );
-        view("theTextShuffled", "Reverse: " + StringFun.shuffle(theText) );
+        view("theTextShuffled", "Shuffled: " + StringFun.shuffle(theText) );
 
 		render("index").noLayout();
     }
